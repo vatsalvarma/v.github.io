@@ -3,57 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vatsal Varma | Portfolio</title>
+<title>Vatsal Varma | Full Stack Developer</title>
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<!-- THREE JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ========== ROOT ========== */
-:root {
-  --bg-dark: #050010;
-  --bg-light: #f5f5f5;
-  --text-dark: #ffffff;
-  --text-light: #111;
-  --neon: #9f5cff;
-}
-
-/* ===== GLOBAL ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: var(--bg-dark);
-  color: var(--text-dark);
+  background: #05010f;
+  color: white;
   overflow-x: hidden;
-  transition: 0.4s;
 }
 
-/* ===== TOGGLE MODE ===== */
-.light {
-  background: var(--bg-light);
-  color: var(--text-light);
+/* ---------- BACKGROUND EFFECT ---------- */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, #7f00ff55, transparent 40%),
+    radial-gradient(circle at 80% 70%, #00e5ff55, transparent 40%);
+  filter: blur(120px);
+  z-index: -1;
 }
 
-.light .card,
-.light .modal-content {
-  background: white;
-  color: black;
-}
-
-/* ===== NAVBAR ===== */
+/* ---------- NAVBAR ---------- */
 nav {
   position: fixed;
-  width: 100%;
   top: 0;
-  padding: 20px 60px;
+  width: 100%;
+  padding: 25px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,103 +46,112 @@ nav {
 }
 
 nav a {
-  color: inherit;
+  color: #ddd;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 30px;
+  font-weight: 500;
 }
 
-.toggle {
-  cursor: pointer;
-  font-size: 18px;
+nav a:hover {
+  color: #9f5cff;
 }
 
-/* ===== HERO ===== */
+/* ---------- HERO ---------- */
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 100px;
+  padding: 120px;
+  gap: 60px;
 }
 
-.hero img {
-  width: 260px;
-  border-radius: 50%;
-  box-shadow: 0 0 50px var(--neon);
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1;
 }
 
-.hero h1 span {
-  color: var(--neon);
+.hero-text span {
+  color: #a855f7;
 }
 
-/* ===== BUTTON ===== */
-.btn {
-  padding: 12px 30px;
+.hero-text p {
   margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+}
+
+.hero-img img {
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px #a855f7;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
   display: inline-block;
-  border-radius: 25px;
-  background: linear-gradient(45deg, #7f00ff, #00eaff);
+  margin-top: 30px;
+  padding: 14px 34px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #7f00ff, #00f0ff);
   color: black;
-  cursor: pointer;
   text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-/* ===== PROJECTS ===== */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- SECTION ---------- */
+section {
+  padding: 120px;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #a855f7;
+}
+
+/* ---------- PROJECTS ---------- */
 .projects {
-  padding: 100px;
-  text-align: center;
-}
-
-.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 40px;
 }
 
 .card {
   background: rgba(255,255,255,0.05);
-  padding: 30px;
+  padding: 25px;
   border-radius: 20px;
-  cursor: pointer;
   transition: 0.4s;
-  box-shadow: 0 0 0 transparent;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px var(--neon);
+  box-shadow: 0 0 30px #a855f7;
 }
 
-/* ===== MODAL ===== */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: #111;
-  padding: 40px;
-  border-radius: 15px;
-  max-width: 400px;
+/* ---------- FOOTER ---------- */
+footer {
   text-align: center;
+  padding: 40px;
+  color: #aaa;
 }
 
-.close {
-  cursor: pointer;
-  float: right;
-  font-size: 20px;
-}
-
-/* ===== MOBILE ===== */
+/* ---------- RESPONSIVE ---------- */
 @media(max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
+    padding: 80px 30px;
+  }
+
+  nav {
+    padding: 20px;
   }
 }
 </style>
@@ -165,98 +159,86 @@ nav a {
 
 <body>
 
-<canvas id="bg"></canvas>
+<div class="bg"></div>
 
+<!-- NAV -->
 <nav>
-  <h2>VV.</h2>
+  <h3>VV.</h3>
   <div>
+    <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <span class="toggle" onclick="toggleMode()">🌙</span>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Hi, I'm <span>Vatsal Varma</span></h1>
-    <p>Full Stack Java Developer | Futuristic Web Creator</p>
-    <a class="btn" href="#projects">View Projects</a>
+  <div class="hero-text">
+    <h1>VATSAL <span>VARMA</span></h1>
+    <p>
+      Full Stack Java Developer specializing in Spring Boot, React, and scalable
+      web applications with modern UI/UX.
+    </p>
+    <a href="#projects" class="btn">View My Work</a>
   </div>
 
-  <img src="https://i.imgur.com/8Km9tLL.png" alt="profile">
-</section>
-
-<section id="projects" class="projects">
-  <h2>My Projects</h2>
-
-  <div class="cards">
-    <div class="card" onclick="openModal('E-Commerce Platform','Spring Boot, React, MySQL')">
-      E-Commerce Platform
-    </div>
-
-    <div class="card" onclick="openModal('Job Portal','Microservices, AWS, Spring Boot')">
-      Job Portal
-    </div>
-
-    <div class="card" onclick="openModal('Chat App','WebSocket, Spring Boot')">
-      Real-Time Chat App
-    </div>
+  <div class="hero-img">
+    <img src="https://i.imgur.com/8Km9tLL.png" alt="Profile">
   </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">✖</span>
-    <h2 id="modalTitle"></h2>
-    <p id="modalText"></p>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a Full Stack Java Developer with experience in building scalable web
+    applications using Spring Boot, React, and Microservices architecture.
+    I have hands-on experience with REST APIs, databases, and cloud-ready systems.
+  </p>
+  <br>
+  <p>
+    I have worked on real-world projects during my internship at Kodnest and
+    continuously improve my skills in AWS, Docker, and Kubernetes.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects">
+    <div class="card">
+      <h3>E-Commerce Platform</h3>
+      <p>React • Spring Boot • MySQL</p>
+    </div>
+
+    <div class="card">
+      <h3>Job Application System</h3>
+      <p>Microservices • Spring Boot • AWS</p>
+    </div>
+
+    <div class="card">
+      <h3>Real-Time Chat App</h3>
+      <p>WebSocket • Spring Boot</p>
+    </div>
+
+    <div class="card">
+      <h3>Todo Management App</h3>
+      <p>Spring Boot • Thymeleaf • MySQL</p>
+    </div>
   </div>
-</div>
+</section>
 
-<script>
-// DARK MODE
-function toggleMode() {
-  document.body.classList.toggle("light");
-}
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <strong>varmavatsal26@gmail.com</strong></p>
+  <p>GitHub: <strong>github.com/vatsalvarma</strong></p>
+</section>
 
-// MODAL
-function openModal(title, text) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalText").innerText = text;
-}
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-// PARTICLES
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bg"), alpha: true });
-renderer.setSize(innerWidth, innerHeight);
-camera.position.z = 5;
-
-const geometry = new THREE.BufferGeometry();
-const count = 4000;
-const pos = new Float32Array(count * 3);
-
-for(let i=0;i<count*3;i++) pos[i]=(Math.random()-0.5)*10;
-
-geometry.setAttribute("position", new THREE.BufferAttribute(pos,3));
-
-const material = new THREE.PointsMaterial({ color: 0x9f5cff, size: 0.02 });
-const points = new THREE.Points(geometry, material);
-scene.add(points);
-
-function animate() {
-  requestAnimationFrame(animate);
-  points.rotation.y += 0.0005;
-  renderer.render(scene, camera);
-}
-animate();
-
-// GSAP
-gsap.from(".hero div", {opacity:0, y:80, duration:1});
-</script>
+<footer>
+  © 2025 Vatsal Varma • All Rights Reserved
+</footer>
 
 </body>
 </html>
