@@ -3,32 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vatsal Varma | Java Developer</title>
+<title>Vatsal Varma | Full Stack Developer</title>
 
-<!-- ICONS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-/* ================= ROOT THEME ================= */
-:root {
-  --bg: #0b0f1a;
-  --text: #e5e7eb;
-  --card: rgba(255, 255, 255, 0.08);
-  --accent: #a855f7;
-}
-
-/* ================= GLOBAL ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: #05010f;
+  color: white;
   overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, #7f00ff55, transparent 40%),
+    radial-gradient(circle at 80% 70%, #00e5ff55, transparent 40%);
+  filter: blur(120px);
+  z-index: -1;
 }
 
 /* ================= NAVBAR ================= */
@@ -39,160 +41,194 @@ nav {
   transform: translateX(-50%);
   width: 90%;
   max-width: 1100px;
-  background: rgba(168, 85, 247, 0.15);
-  backdrop-filter: blur(15px);
-  border-radius: 50px;
-  padding: 12px 30px;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(168, 85, 247, 0.18);
+  backdrop-filter: blur(20px);
+  border-radius: 60px;
   z-index: 1000;
-  box-shadow: 0 0 25px rgba(168,85,247,0.3);
+  box-shadow: 0 0 35px rgba(168,85,247,0.4);
 }
 
-nav h2 {
-  color: #fff;
-  font-weight: 600;
+nav h3 {
+  color: white;
 }
 
 nav a {
-  color: #fff;
-  margin-left: 20px;
+  color: #ddd;
+  margin-left: 25px;
   text-decoration: none;
-  font-weight: 500;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #d8b4fe;
+  color: #c084fc;
 }
 
 /* ================= HERO ================= */
-header {
+.hero {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 100px;
+  padding: 120px;
+  gap: 60px;
 }
 
-header h1 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
+.hero-text h1 {
+  font-size: 4rem;
 }
 
-header p {
-  opacity: 0.9;
-  margin-bottom: 25px;
+.hero-text span {
+  color: #a855f7;
 }
 
+.hero-text p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.hero-img img {
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px #a855f7;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ================= BUTTONS ================= */
 .btn {
-  padding: 12px 28px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #a855f7, #6366f1);
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 8px;
   display: inline-block;
+  margin-top: 30px;
+  padding: 14px 34px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #7f00ff, #00f0ff);
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.btn.outline {
-  background: transparent;
-  border: 2px solid #a855f7;
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #a855f7;
 }
 
 /* ================= SECTIONS ================= */
-.section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 80px 20px;
+section {
+  padding: 120px;
 }
 
-.section h2 {
-  text-align: center;
+h2 {
+  font-size: 3rem;
   margin-bottom: 40px;
-  font-size: 2.2rem;
-}
-
-/* ================= GLASS CARD ================= */
-.card {
-  background: var(--card);
-  backdrop-filter: blur(15px);
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  color: #a855f7;
 }
 
 /* ================= SKILLS ================= */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 25px;
 }
 
 .skill-box {
-  width: 90px;
-  height: 90px;
   background: rgba(255,255,255,0.1);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
+  padding: 25px 10px;
+  border-radius: 20px;
+  text-align: center;
   animation: float 4s ease-in-out infinite;
+  transition: 0.3s;
 }
 
-.skill-box:nth-child(even) {
-  animation-delay: 2s;
+.skill-box:hover {
+  box-shadow: 0 0 30px #a855f7;
+  transform: translateY(-10px);
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.skill-box i {
+  font-size: 40px;
+  color: #a855f7;
+}
+
+.skill-box p {
+  margin-top: 10px;
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.07);
+  padding: 25px;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px #a855f7;
 }
 
 /* ================= CONTACT ================= */
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  font-size: 28px;
+.contact-box {
+  text-align: center;
 }
 
-.contact-links a {
+.contact-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contact-icons a {
+  font-size: 32px;
   color: white;
   transition: 0.3s;
 }
 
-.contact-links a:hover {
+.contact-icons a:hover {
   color: #a855f7;
 }
 
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 25px;
-  opacity: 0.7;
+  padding: 40px;
+  color: #aaa;
 }
 
-/* ================= BACKGROUND ================= */
-.bg {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(120deg, #4c1d95, #0f172a, #7c3aed);
-  background-size: 300% 300%;
-  animation: bg 15s ease infinite;
-  z-index: -1;
+/* ================= SCROLL ANIMATION ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
 }
 
-@keyframes bg {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= FLOAT ANIMATION ================= */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 80px 30px;
+  }
 }
 </style>
 </head>
@@ -201,68 +237,88 @@ footer {
 
 <div class="bg"></div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
-  <h2>Vatsal</h2>
+  <h3>VV.</h3>
   <div>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#tech">Tech Stack</a>
+    <a href="#tech">Tech</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<header>
-  <h1>Vatsal Varma</h1>
-  <p>Java Developer | Spring Boot | Backend Engineer</p>
-  <a href="#contact" class="btn">Contact Me</a>
-  <a href="Vatsal_Varma_Resume.pdf" class="btn outline" download>Download Resume</a>
-</header>
+<section class="hero reveal">
+  <div class="hero-text">
+    <h1>VATSAL <span>VARMA</span></h1>
+    <p>Full Stack Java Developer | Spring Boot | Microservices</p>
+    <a href="#contact" class="btn">Contact Me</a>
+    <a href="Vatsal_Varma_Resume.pdf" class="btn">Download Resume</a>
+  </div>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    Passionate Java Developer specializing in Spring Boot, REST APIs, and backend systems.
-    I enjoy building scalable applications and clean architectures.
+  <div class="hero-img">
+    <img src="neo.png" alt="Vatsal Varma">
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate Full Stack Java Developer with strong experience in backend systems,
+    REST APIs, and modern frontend technologies. I love building scalable, real-world applications.
+  </p>
+</section>
+
 <!-- SKILLS -->
-<section class="section" id="skills">
+<section id="skills" class="reveal">
   <h2>Skills</h2>
-  <div class="skills">
-    <div class="skill-box"><i class="bi bi-cup-hot-fill"></i></div>
-    <div class="skill-box"><i class="bi bi-lightning-fill"></i></div>
-    <div class="skill-box"><i class="bi bi-code-slash"></i></div>
-    <div class="skill-box"><i class="bi bi-database-fill"></i></div>
-    <div class="skill-box"><i class="bi bi-git"></i></div>
+  <div class="skills-grid">
+    <div class="skill-box"><i class="bi bi-cup-hot-fill"></i><p>Java</p></div>
+    <div class="skill-box"><i class="bi bi-lightning-fill"></i><p>Spring Boot</p></div>
+    <div class="skill-box"><i class="bi bi-code-slash"></i><p>HTML / CSS</p></div>
+    <div class="skill-box"><i class="bi bi-database-fill"></i><p>MySQL</p></div>
+    <div class="skill-box"><i class="bi bi-git"></i><p>Git</p></div>
+    <div class="skill-box"><i class="bi bi-github"></i><p>GitHub</p></div>
   </div>
 </section>
 
 <!-- TECH STACK -->
-<section class="section" id="tech">
+<section id="tech" class="reveal">
   <h2>Tech Stack</h2>
   <div class="card">
-    Java • Spring Boot • REST APIs • MySQL • HTML • CSS • Git • GitHub
+    Java • Spring Boot • REST APIs • Microservices • MySQL • Git • GitHub • Docker (Basic)
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section id="contact" class="reveal">
   <h2>Contact</h2>
-  <div class="card contact-links">
-    <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank">
-      <i class="bi bi-linkedin"></i>
-    </a>
-    <a href="https://github.com/vatsalvarma" target="_blank">
-      <i class="bi bi-github"></i>
-    </a>
+  <div class="contact-box">
+    <p>Email: <b>gamesvatsal99@gmail.com</b></p>
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/vatsalvarma" target="_blank"><i class="bi bi-github"></i></a>
+    </div>
   </div>
 </section>
 
-<footer>© 2025 Vatsal Varma</footer>
+<footer>
+  © 2025 Vatsal Varma • All Rights Reserved
+</footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
