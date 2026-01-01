@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vatsal Varma | Full Stack Developer</title>
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
 * {
@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- BACKGROUND EFFECT ---------- */
+/* ================= BACKGROUND ================= */
 .bg {
   position: fixed;
   inset: 0;
@@ -33,30 +33,43 @@ body {
   z-index: -1;
 }
 
-/* ---------- NAVBAR ---------- */
+/* ================= NAVBAR ================= */
 nav {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 25px 80px;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  background: rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 60px;
+  z-index: 1000;
+  box-shadow: 0 0 30px rgba(168,85,247,0.4);
+}
+
+nav h3 {
+  color: white;
+  letter-spacing: 1px;
 }
 
 nav a {
   color: #ddd;
   text-decoration: none;
-  margin-left: 30px;
+  margin-left: 25px;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 nav a:hover {
-  color: #9f5cff;
+  color: #c084fc;
 }
 
-/* ---------- HERO ---------- */
+/* ================= HERO ================= */
 .hero {
   height: 100vh;
   display: flex;
@@ -67,7 +80,6 @@ nav a:hover {
 
 .hero-text h1 {
   font-size: 4rem;
-  line-height: 1;
 }
 
 .hero-text span {
@@ -87,7 +99,7 @@ nav a:hover {
   box-shadow: 0 0 60px #a855f7;
 }
 
-/* ---------- BUTTON ---------- */
+/* ================= BUTTONS ================= */
 .btn {
   display: inline-block;
   margin-top: 30px;
@@ -100,58 +112,115 @@ nav a:hover {
   transition: 0.3s;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+.btn.outline {
+  background: transparent;
+  border: 2px solid #a855f7;
+  color: #fff;
 }
 
-/* ---------- SECTION ---------- */
+.btn:hover {
+  transform: scale(1.07);
+}
+
+/* ================= SECTIONS ================= */
 section {
   padding: 120px;
 }
 
 h2 {
   font-size: 3rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: #a855f7;
 }
 
-/* ---------- PROJECTS ---------- */
+/* ================= SKILLS ================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 25px;
+  text-align: center;
+}
+
+.skill-box {
+  background: rgba(255,255,255,0.08);
+  padding: 25px 10px;
+  border-radius: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.skill-box i {
+  font-size: 40px;
+  color: #a855f7;
+}
+
+.skill-box p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.skill-box:nth-child(even) {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= PROJECTS ================= */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.07);
   padding: 25px;
   border-radius: 20px;
-  transition: 0.4s;
-  cursor: pointer;
+  transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px #a855f7;
+  box-shadow: 0 0 35px #a855f7;
 }
 
-/* ---------- FOOTER ---------- */
+/* ================= CONTACT ================= */
+.contact-box {
+  text-align: center;
+}
+
+.contact-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contact-icons a {
+  font-size: 32px;
+  color: white;
+  transition: 0.3s;
+}
+
+.contact-icons a:hover {
+  color: #a855f7;
+}
+
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
   padding: 40px;
   color: #aaa;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
   .hero {
     flex-direction: column;
-    text-align: center;
     padding: 80px 30px;
-  }
-
-  nav {
-    padding: 20px;
   }
 }
 </style>
@@ -161,12 +230,13 @@ footer {
 
 <div class="bg"></div>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
   <h3>VV.</h3>
   <div>
     <a href="#about">About</a>
-    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#tech">Tech Stack</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -175,11 +245,9 @@ footer {
 <section class="hero">
   <div class="hero-text">
     <h1>VATSAL <span>VARMA</span></h1>
-    <p>
-      Full Stack Java Developer specializing in Spring Boot, React, and scalable
-      web applications with modern Web Techonologies.
-    </p>
-    <a href="#projects" class="btn">View My Work</a>
+    <p>Full Stack Java Developer | Spring Boot | Microservices</p>
+    <a href="#contact" class="btn">Contact Me</a>
+    <a href="Vatsal_Varma_Resume.pdf" class="btn outline" download>Download Resume</a>
   </div>
 
   <div class="hero-img">
@@ -191,60 +259,42 @@ footer {
 <section id="about">
   <h2>About Me</h2>
   <p>
-    I am Vatsal Varma, a passionate Full Stack Java Developer with hands-on experience in building scalable, high-performance web applications using Java, Spring Boot, and React.
-I have completed my B.E. in Computer Science & Engineering (2024) from Visvesvaraya Technological University, and gained real-world development experience during my internship at Kodnest, where I worked on full-stack projects involving RESTful APIs, databases, and modern frontend frameworks.
-My technical expertise includes:
-Backend development with Spring Boot, Spring Security, Hibernate, and JPA
-Frontend development using React, HTML, CSS, and Bootstrap
-Database management with MySQL and MongoDB
-Building scalable and maintainable applications using microservices architecture
-Version control and deployment using Git, Github, Docker, and basic AWS services
-I have worked on multiple real-world projects such as:
-An E-Commerce Platform with authentication, cart, and order management
-A Job Application System built using microservices
-A Real-Time Chat Application using WebSockets
-A Task Management System using Spring Boot and Thymeleaf
-I am always eager to learn new technologies, improve my problem-solving skills, and contribute to innovative software solutions. I am currently seeking opportunities where I can grow as a developer and work on impactful, production-level applications.
-  </p>
-  <br>
-  <p>
-    I have worked on real-world projects during my internship at Kodnest and
-    continuously improve my skills in Jenkins, Docker, and Kubernetes id love to work in an enviroment where i can work on java frameworks and learn new techonologies.
+    I am a passionate Full Stack Java Developer with hands-on experience in building scalable,
+    production-ready applications using Spring Boot, REST APIs, and modern frontend technologies.
   </p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-box"><i class="bi bi-cup-hot-fill"></i><p>Java</p></div>
+    <div class="skill-box"><i class="bi bi-lightning-fill"></i><p>Spring Boot</p></div>
+    <div class="skill-box"><i class="bi bi-code-slash"></i><p>HTML / CSS</p></div>
+    <div class="skill-box"><i class="bi bi-database-fill"></i><p>MySQL</p></div>
+    <div class="skill-box"><i class="bi bi-git"></i><p>Git</p></div>
+    <div class="skill-box"><i class="bi bi-github"></i><p>GitHub</p></div>
+  </div>
+</section>
 
-  <div class="projects">
-    <div class="card">
-      <h3>E-Commerce Platform</h3>
-      <p>React • Spring Boot • MySQL</p>
-    </div>
-
-    <div class="card">
-      <h3>Job Application System</h3>
-      <p>Microservices • Spring Boot • AWS</p>
-    </div>
-
-    <div class="card">
-      <h3>Real-Time Chat App</h3>
-      <p>WebSocket • Spring Boot</p>
-    </div>
-
-    <div class="card">
-      <h3>Todo Management App</h3>
-      <p>Spring Boot • Thymeleaf • MySQL</p>
-    </div>
+<!-- TECH STACK -->
+<section id="tech">
+  <h2>Tech Stack</h2>
+  <div class="card">
+    Java • Spring Boot • REST APIs • Microservices • MySQL • Git • GitHub • Docker (Basic)
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email: <strong>gamesvatsal99@gmail.com</strong></p>
-  <p>GitHub: <strong>github.com/vatsalvarma</strong></p>
+  <div class="contact-box">
+    <p>Email: <b>gamesvatsal99@gmail.com</b></p>
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/vatsalvarma" target="_blank"><i class="bi bi-github"></i></a>
+    </div>
+  </div>
 </section>
 
 <footer>
