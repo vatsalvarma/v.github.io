@@ -45,23 +45,21 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(168, 85, 247, 0.15);
+  background: rgba(168, 85, 247, 0.18);
   backdrop-filter: blur(20px);
   border-radius: 60px;
   z-index: 1000;
-  box-shadow: 0 0 30px rgba(168,85,247,0.4);
+  box-shadow: 0 0 35px rgba(168,85,247,0.4);
 }
 
 nav h3 {
   color: white;
-  letter-spacing: 1px;
 }
 
 nav a {
   color: #ddd;
-  text-decoration: none;
   margin-left: 25px;
-  font-weight: 500;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -71,7 +69,7 @@ nav a:hover {
 
 /* ================= HERO ================= */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 120px;
@@ -90,13 +88,13 @@ nav a:hover {
   margin-top: 20px;
   font-size: 1.2rem;
   color: #ccc;
-  max-width: 600px;
 }
 
 .hero-img img {
   width: 300px;
   border-radius: 50%;
   box-shadow: 0 0 60px #a855f7;
+  animation: float 5s ease-in-out infinite;
 }
 
 /* ================= BUTTONS ================= */
@@ -112,14 +110,9 @@ nav a:hover {
   transition: 0.3s;
 }
 
-.btn.outline {
-  background: transparent;
-  border: 2px solid #a855f7;
-  color: #fff;
-}
-
 .btn:hover {
-  transform: scale(1.07);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #a855f7;
 }
 
 /* ================= SECTIONS ================= */
@@ -136,16 +129,22 @@ h2 {
 /* ================= SKILLS ================= */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 25px;
-  text-align: center;
 }
 
 .skill-box {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   padding: 25px 10px;
   border-radius: 20px;
+  text-align: center;
   animation: float 4s ease-in-out infinite;
+  transition: 0.3s;
+}
+
+.skill-box:hover {
+  box-shadow: 0 0 30px #a855f7;
+  transform: translateY(-10px);
 }
 
 .skill-box i {
@@ -155,17 +154,6 @@ h2 {
 
 .skill-box p {
   margin-top: 10px;
-  font-size: 0.9rem;
-}
-
-.skill-box:nth-child(even) {
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
 }
 
 /* ================= PROJECTS ================= */
@@ -179,7 +167,7 @@ h2 {
   background: rgba(255,255,255,0.07);
   padding: 25px;
   border-radius: 20px;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .card:hover {
@@ -216,6 +204,25 @@ footer {
   color: #aaa;
 }
 
+/* ================= SCROLL ANIMATION ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= FLOAT ANIMATION ================= */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
 /* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
   .hero {
@@ -230,24 +237,24 @@ footer {
 
 <div class="bg"></div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
   <h3>VV.</h3>
   <div>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#tech">Tech Stack</a>
+    <a href="#tech">Tech</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero reveal">
   <div class="hero-text">
     <h1>VATSAL <span>VARMA</span></h1>
     <p>Full Stack Java Developer | Spring Boot | Microservices</p>
     <a href="#contact" class="btn">Contact Me</a>
-    <a href="Vatsal_Varma_Resume.pdf" class="btn outline" download>Download Resume</a>
+    <a href="Vatsal_Varma_Resume.pdf" class="btn">Download Resume</a>
   </div>
 
   <div class="hero-img">
@@ -256,16 +263,16 @@ footer {
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <h2>About Me</h2>
   <p>
-    I am a passionate Full Stack Java Developer with hands-on experience in building scalable,
-    production-ready applications using Spring Boot, REST APIs, and modern frontend technologies.
+    I am a passionate Full Stack Java Developer with strong experience in backend systems,
+    REST APIs, and modern frontend technologies. I love building scalable, real-world applications.
   </p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal">
   <h2>Skills</h2>
   <div class="skills-grid">
     <div class="skill-box"><i class="bi bi-cup-hot-fill"></i><p>Java</p></div>
@@ -278,7 +285,7 @@ footer {
 </section>
 
 <!-- TECH STACK -->
-<section id="tech">
+<section id="tech" class="reveal">
   <h2>Tech Stack</h2>
   <div class="card">
     Java • Spring Boot • REST APIs • Microservices • MySQL • Git • GitHub • Docker (Basic)
@@ -286,7 +293,7 @@ footer {
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal">
   <h2>Contact</h2>
   <div class="contact-box">
     <p>Email: <b>gamesvatsal99@gmail.com</b></p>
@@ -300,6 +307,18 @@ footer {
 <footer>
   © 2025 Vatsal Varma • All Rights Reserved
 </footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
