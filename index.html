@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= BACKGROUND ================= */
+/* ===== BACKGROUND ===== */
 .bg {
   position: fixed;
   inset: 0;
@@ -33,46 +33,60 @@ body {
   z-index: -1;
 }
 
-/* ================= NAVBAR ================= */
+/* ===== NAVBAR ===== */
 nav {
   position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1100px;
-  padding: 18px 40px;
+  top: 0;
+  width: 100%;
+  padding: 22px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(168, 85, 247, 0.18);
+  background: rgba(168, 85, 247, 0.15);
   backdrop-filter: blur(20px);
-  border-radius: 60px;
   z-index: 1000;
-  box-shadow: 0 0 35px rgba(168,85,247,0.4);
+  box-shadow: 0 0 35px rgba(168,85,247,0.35);
 }
 
 nav h3 {
-  color: white;
+  font-size: 1.5rem;
 }
 
-nav a {
-  color: #ddd;
-  margin-left: 25px;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+nav ul li a {
+  color: #fff;
   text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #c084fc;
+  left: 0;
+  bottom: -5px;
   transition: 0.3s;
 }
 
-nav a:hover {
-  color: #c084fc;
+nav ul li a:hover::after {
+  width: 100%;
 }
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 120px;
+  padding: 120px 80px;
   gap: 60px;
 }
 
@@ -88,63 +102,62 @@ nav a:hover {
   margin-top: 20px;
   font-size: 1.2rem;
   color: #ccc;
+  max-width: 600px;
 }
 
 .hero-img img {
-  width: 300px;
+  width: 320px;
   border-radius: 50%;
-  box-shadow: 0 0 60px #a855f7;
+  box-shadow: 0 0 70px #a855f7;
   animation: float 5s ease-in-out infinite;
 }
 
-/* ================= BUTTONS ================= */
+/* ===== BUTTONS ===== */
 .btn {
   display: inline-block;
   margin-top: 30px;
-  padding: 14px 34px;
-  border-radius: 30px;
+  padding: 14px 36px;
+  border-radius: 40px;
   background: linear-gradient(45deg, #7f00ff, #00f0ff);
   color: black;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
   transition: 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #a855f7;
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #a855f7;
 }
 
-/* ================= SECTIONS ================= */
+/* ===== SECTION ===== */
 section {
-  padding: 120px;
+  padding: 120px 80px;
 }
 
 h2 {
   font-size: 3rem;
-  margin-bottom: 40px;
   color: #a855f7;
+  margin-bottom: 40px;
 }
 
-/* ================= SKILLS ================= */
+/* ===== SKILLS ===== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 25px;
 }
 
 .skill-box {
   background: rgba(255,255,255,0.1);
-  padding: 25px 10px;
+  padding: 25px;
   border-radius: 20px;
   text-align: center;
   animation: float 4s ease-in-out infinite;
-  transition: 0.3s;
 }
 
 .skill-box:hover {
   box-shadow: 0 0 30px #a855f7;
-  transform: translateY(-10px);
 }
 
 .skill-box i {
@@ -152,43 +165,33 @@ h2 {
   color: #a855f7;
 }
 
-.skill-box p {
-  margin-top: 10px;
-}
-
-/* ================= PROJECTS ================= */
+/* ===== PROJECTS ===== */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
 
-.card {
-  background: rgba(255,255,255,0.07);
+.project-card {
+  background: rgba(255,255,255,0.08);
   padding: 25px;
   border-radius: 20px;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 35px #a855f7;
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 40px #a855f7;
 }
 
-/* ================= CONTACT ================= */
-.contact-box {
-  text-align: center;
-}
-
+/* ===== CONTACT ===== */
 .contact-icons {
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
   gap: 30px;
+  font-size: 32px;
 }
 
 .contact-icons a {
-  font-size: 32px;
   color: white;
   transition: 0.3s;
 }
@@ -197,18 +200,18 @@ h2 {
   color: #a855f7;
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 40px;
   color: #aaa;
 }
 
-/* ================= SCROLL ANIMATION ================= */
+/* ===== SCROLL ANIMATION ===== */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
-  transition: all 1s ease;
+  transition: 1s;
 }
 
 .reveal.active {
@@ -216,14 +219,14 @@ footer {
   transform: translateY(0);
 }
 
-/* ================= FLOAT ANIMATION ================= */
+/* ===== FLOAT ===== */
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-14px); }
   100% { transform: translateY(0); }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ===== RESPONSIVE ===== */
 @media(max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -237,23 +240,25 @@ footer {
 
 <div class="bg"></div>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
   <h3>VV.</h3>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#tech">Tech</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero reveal">
   <div class="hero-text">
     <h1>VATSAL <span>VARMA</span></h1>
-    <p>Full Stack Java Developer | Spring Boot | Microservices</p>
-    <a href="#contact" class="btn">Contact Me</a>
+    <p>
+      Full Stack Java Developer specializing in Spring Boot, Microservices, and scalable web applications.
+    </p>
+    <a href="#projects" class="btn">View My Work</a>
     <a href="Vatsal_Varma_Resume.pdf" class="btn">Download Resume</a>
   </div>
 
@@ -266,8 +271,9 @@ footer {
 <section id="about" class="reveal">
   <h2>About Me</h2>
   <p>
-    I am a passionate Full Stack Java Developer with strong experience in backend systems,
-    REST APIs, and modern frontend technologies. I love building scalable, real-world applications.
+    I am a passionate Full Stack Java Developer with experience building scalable, secure, and high-performance
+    applications using Spring Boot, REST APIs, and modern frontend technologies.
+    I have worked on multiple real-world projects including e-commerce platforms, job portals, and real-time systems.
   </p>
 </section>
 
@@ -284,23 +290,39 @@ footer {
   </div>
 </section>
 
-<!-- TECH STACK -->
-<section id="tech" class="reveal">
-  <h2>Tech Stack</h2>
-  <div class="card">
-    Java • Spring Boot • REST APIs • Microservices • MySQL • Git • GitHub • Docker (Basic)
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>E-Commerce Platform</h3>
+      <p>Spring Boot • REST APIs • MySQL</p>
+    </div>
+    <div class="project-card">
+      <h3>Job Application System</h3>
+      <p>Microservices • Spring Boot</p>
+    </div>
+    <div class="project-card">
+      <h3>Real-Time Chat App</h3>
+      <p>WebSocket • Spring Boot</p>
+    </div>
+    <div class="project-card">
+      <h3>Task Management System</h3>
+      <p>Spring Boot • Thymeleaf</p>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="reveal">
   <h2>Contact</h2>
-  <div class="contact-box">
-    <p>Email: <b>gamesvatsal99@gmail.com</b></p>
-    <div class="contact-icons">
-      <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank"><i class="bi bi-linkedin"></i></a>
-      <a href="https://github.com/vatsalvarma" target="_blank"><i class="bi bi-github"></i></a>
-    </div>
+  <div class="contact-icons">
+    <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://github.com/vatsalvarma" target="_blank">
+      <i class="bi bi-github"></i>
+    </a>
   </div>
 </section>
 
@@ -312,8 +334,7 @@ footer {
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
