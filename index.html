@@ -206,6 +206,76 @@
       .hero { flex-direction: column; text-align: center; }
       section { padding: 100px 30px; }
     }
+
+    /* ---------- PROJECT FLOAT ANIMATION ---------- */
+.project-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ---------- BOTTOM PROJECT LINKS ---------- */
+.project-links {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.project-link-card {
+  background: linear-gradient(135deg, #1f0030, #0a0015);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #a855f7;
+  transition: 0.4s;
+}
+
+.project-link-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 0 35px #a855f7;
+}
+
+.project-link-card a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+    /* CONTACT ICONS CENTER + FLOAT */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.contact-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.contact-links img {
+  width: 70px;
+  height: 70px;
+  transition: 0.4s;
+  filter: drop-shadow(0 0 10px #a855f7);
+}
+
+.contact-links img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 25px #a855f7);
+}
+
+.contact-links span {
+  margin-top: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+
   </style>
 </head>
 
@@ -267,35 +337,69 @@
 <section id="projects">
   <h2>Projects</h2>
 
+  <!-- TOP FLOATING CARDS -->
   <div class="projects">
-    <div class="card"><h3>E-Commerce Platform</h3><p>React • Spring Boot • MySQL</p></div>
-    <div class="card"><h3>Job Application System</h3><p>Microservices • Spring Boot • AWS</p></div>
-    <div class="card"><h3>Real-Time Chat App</h3><p>WebSocket • Spring Boot</p></div>
-    <div class="card"><h3>Todo Management App</h3><p>Spring Boot • Thymeleaf</p></div>
+    <div class="card project-float">
+      <h3>E-Commerce Platform</h3>
+      <p>React • Spring Boot • MySQL</p>
+    </div>
+
+    <div class="card project-float">
+      <h3>Job Application System</h3>
+      <p>Microservices • Spring Boot</p>
+    </div>
+
+    <div class="card project-float">
+      <h3>Real-Time Chat App</h3>
+      <p>WebSocket • Spring Boot</p>
+    </div>
+
+    <div class="card project-float">
+      <h3>Todo Management App</h3>
+      <p>Spring Boot • Thymeleaf</p>
+    </div>
   </div>
-  <div class="contact-links">
-    <br>
-    <br>
-    <br>
-    <a href="https://vatsalvarma.github.io/v-ecom.github.io/" target="_blank"> Click here: -> E-Commerce website</a> <br>
-    <br>
-    <br>
-    <a href="https://vatsalvarma.github.io/v-jobportal/" target="_blank"> Click here: -> Job Portal</a> <br>
-    <br>
-    <br>
-    <a href="https://vatsalvarma.github.io/v-gamestore/"> Click here: -> V-Game Store</a>
+
+  <!-- CLICKABLE PROJECT LINKS -->
+  <div class="project-links">
+    <div class="project-link-card">
+      <a href="https://vatsalvarma.github.io/v-ecom.github.io/" target="_blank">
+        🚀 E-Commerce Website [click me]
+      </a>
+    </div>
+
+    <div class="project-link-card">
+      <a href="https://vatsalvarma.github.io/v-jobportal/" target="_blank">
+        💼 Job Portal [click me]
+      </a>
+    </div>
+
+    <div class="project-link-card">
+      <a href="https://vatsalvarma.github.io/v-gamestore/" target="_blank">
+        🎮 Game Store [click me]
+      </a>
+    </div>
   </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
+
   <div class="contact-links">
-    <a href="https://github.com/vatsalvarma" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank">LinkedIn</a>
-    <a href="mailto:gamesvatsal99@gmail.com">Email</a>
+    <a href="https://github.com/vatsalvarma" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+      <span>GitHub</span>
+    </a>
+
+    <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
   </div>
 </section>
+
 
 <footer>
   © 2025 Vatsal Varma • All Rights Reserved
