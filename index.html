@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vatsal Varma | Full Stack Developer</title>
 
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ================= GLOBAL ================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -26,7 +22,7 @@
       overflow-x: hidden;
     }
 
-    /* ================= BACKGROUND EFFECT ================= */
+    /* ---------- BACKGROUND ---------- */
     .bg {
       position: fixed;
       inset: 0;
@@ -37,41 +33,71 @@
       z-index: -1;
     }
 
-    /* ================= NAVBAR ================= */
+    /* ---------- NAVBAR ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 25px 80px;
+      padding: 20px 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      backdrop-filter: blur(15px);
+      background: rgba(128, 0, 255, 0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 999;
+    }
+
+    nav h3 {
+      color: #fff;
+      font-size: 1.6rem;
     }
 
     nav a {
       color: #ddd;
-      text-decoration: none;
       margin-left: 30px;
+      text-decoration: none;
       font-weight: 500;
+      transition: 0.3s;
+      padding: 8px 14px;
+      border-radius: 20px;
     }
 
     nav a:hover {
-      color: #9f5cff;
+      background: rgba(168, 85, 247, 0.25);
+      box-shadow: 0 0 15px #a855f7;
+      color: #fff;
     }
 
-    /* ================= HERO ================= */
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 120px 100px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: #a855f7;
+      margin-bottom: 30px;
+    }
+
+    /* ---------- HERO ---------- */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px;
-      gap: 60px;
+      gap: 70px;
     }
 
     .hero-text h1 {
       font-size: 4rem;
-      line-height: 1;
     }
 
     .hero-text span {
@@ -86,12 +112,17 @@
     }
 
     .hero-img img {
-      width: 300px;
+      width: 320px;
       border-radius: 50%;
+      animation: float 4s ease-in-out infinite;
       box-shadow: 0 0 60px #a855f7;
     }
 
-    /* ================= BUTTON ================= */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
     .btn {
       display: inline-block;
       margin-top: 30px;
@@ -99,27 +130,44 @@
       border-radius: 30px;
       background: linear-gradient(45deg, #7f00ff, #00f0ff);
       color: black;
-      text-decoration: none;
       font-weight: 600;
+      text-decoration: none;
       transition: 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #a855f7;
     }
 
-    /* ================= SECTION ================= */
-    section {
-      padding: 120px;
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
-    h2 {
-      font-size: 3rem;
-      margin-bottom: 30px;
-      color: #a855f7;
+    .skill-box {
+      background: rgba(255,255,255,0.08);
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      transition: 0.4s;
+      animation: float 5s ease-in-out infinite;
     }
 
-    /* ================= PROJECTS ================= */
+    .skill-box img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .skill-box:hover {
+      box-shadow: 0 0 25px #a855f7;
+      transform: translateY(-10px);
+    }
+
+    /* ---------- PROJECTS ---------- */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -127,11 +175,10 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       padding: 25px;
       border-radius: 20px;
       transition: 0.4s;
-      cursor: pointer;
     }
 
     .card:hover {
@@ -139,102 +186,123 @@
       box-shadow: 0 0 30px #a855f7;
     }
 
-    /* ================= FOOTER ================= */
+    /* ---------- CONTACT ---------- */
+    .contact-links a {
+      display: inline-block;
+      margin-right: 25px;
+      color: #a855f7;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
     footer {
       text-align: center;
       padding: 40px;
       color: #aaa;
     }
 
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 80px 30px;
-      }
-
-      nav {
-        padding: 20px;
-      }
+    @media(max-width:768px){
+      nav { padding: 20px; }
+      .hero { flex-direction: column; text-align: center; }
+      section { padding: 100px 30px; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="bg"></div>
+<div class="bg"></div>
 
-  <!-- NAV -->
-  <nav>
-    <h3>VV.</h3>
-    <div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <h3>VV.</h3>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>VATSAL <span>VARMA</span></h1>
-      <p>
-        Full Stack Java Developer specializing in Spring Boot, React, and scalable
-        web applications with modern Web Technologies.
-      </p>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>VATSAL <span>VARMA</span></h1>
+    <p>Full Stack Java Developer specializing in scalable backend systems and modern web applications.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
 
-    <div class="hero-img">
-      <img src="neo.png" alt="Vatsal Varma" />
-    </div>
-  </section>
+  <div class="hero-img">
+    <img src="neo.png" alt="Vatsal Varma">
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p> I am Vatsal Varma, a passionate Full Stack Java Developer with hands-on experience in building scalable, high-performance web applications using Java, Spring Boot, and React. I have completed my B.E. in Computer Science & Engineering (2024) from Visvesvaraya Technological University, and gained real-world development experience during my internship at Kodnest, where I worked on full-stack projects involving RESTful APIs, databases, and modern frontend frameworks. My technical expertise includes: Backend development with Spring Boot, Spring Security, Hibernate, and JPA Frontend development using React, HTML, CSS, and Bootstrap Database management with MySQL and MongoDB Building scalable and maintainable applications using microservices architecture Version control and deployment using Git, Github, Docker, and basic AWS services I have worked on multiple real-world projects such as: An E-Commerce Platform with authentication, cart, and order management A Job Application System built using microservices A Real-Time Chat Application using WebSockets A Task Management System using Spring Boot and Thymeleaf I am always eager to learn new technologies, improve my problem-solving skills, and contribute to innovative software solutions. I am currently seeking opportunities where I can grow as a developer and work on impactful, production-level applications. </p> <br> 
-    <p> I have worked on real-world projects during my internship at Kodnest and continuously improve my skills in Jenkins, Docker, and Kubernetes id love to work in an enviroment where i can work on java frameworks and learn new techonologies. </p>
-  </section>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Full Stack Java Developer with experience in Spring Boot, REST APIs, Microservices,
+    React, MySQL, MongoDB and Docker. Passionate about building scalable applications.
+  </p>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
 
-    <div class="projects">
-      <div class="card">
-        <h3>E-Commerce Platform</h3>
-        <p>React • Spring Boot • MySQL</p>
-      </div>
+  <div class="skills-grid">
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">Java</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">HTML</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">CSS</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">JavaScript</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">Spring Boot</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg">Bootstrap</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">Git</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">GitHub</div>
+    <div class="skill-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">MongoDB</div>
+  </div>
 
-      <div class="card">
-        <h3>Job Application System</h3>
-        <p>Microservices • Spring Boot • AWS</p>
-      </div>
+  <a href="resume.pdf" class="btn" download>Download Resume</a>
+</section>
 
-      <div class="card">
-        <h3>Real-Time Chat App</h3>
-        <p>WebSocket • Spring Boot</p>
-      </div>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
 
-      <div class="card">
-        <h3>Todo Management App</h3>
-        <p>Spring Boot • Thymeleaf • MySQL</p>
-      </div>
-    </div>
-  </section>
+  <div class="projects">
+    <div class="card"><h3>E-Commerce Platform</h3><p>React • Spring Boot • MySQL</p></div>
+    <div class="card"><h3>Job Application System</h3><p>Microservices • Spring Boot • AWS</p></div>
+    <div class="card"><h3>Real-Time Chat App</h3><p>WebSocket • Spring Boot</p></div>
+    <div class="card"><h3>Todo Management App</h3><p>Spring Boot • Thymeleaf</p></div>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <strong>gamesvatsal99@gmail.com</strong></p>
-    <p>GitHub: <strong>github.com/vatsalvarma</strong></p>
-  </section>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="https://github.com/vatsalvarma" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/vatsal-varma-2bb681294/" target="_blank">LinkedIn</a>
+    <a href="mailto:gamesvatsal99@gmail.com">Email</a>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Vatsal Varma • All Rights Reserved
-  </footer>
+<footer>
+  © 2025 Vatsal Varma • All Rights Reserved
+</footer>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
 
 </body>
-</htm
+</html>
